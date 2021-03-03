@@ -25,10 +25,10 @@
             <artifactId>spring-graalvm-native</artifactId>
             <version>${sring-graalvm.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-data-jpa</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
@@ -47,11 +47,11 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.h2database</groupId>-->
+<!--            <artifactId>h2</artifactId>-->
+<!--            <scope>runtime</scope>-->
+<!--        </dependency>-->
 <!--         https://mvnrepository.com/artifact/commons-logging/commons-logging -->
 <!--        <dependency>-->
 <!--            <groupId>commons-logging</groupId>-->
@@ -139,7 +139,6 @@
                                 --initialize-at-build-time=sun.instrument.InstrumentationImpl
 
                                 --rerun-class-initialization-at-runtime=sun.nio.ch.Iocp
-
 
                             </buildArgs>
                             <mainClass>com.springnative.demo.DemoApplication</mainClass>
