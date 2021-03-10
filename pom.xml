@@ -52,13 +52,6 @@
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
-<!--         https://mvnrepository.com/artifact/commons-logging/commons-logging -->
-<!--        <dependency>-->
-<!--            <groupId>commons-logging</groupId>-->
-<!--            <artifactId>commons-logging</artifactId>-->
-<!--            <version>1.2</version>-->
-<!--        </dependency>-->
-<!--         https://mvnrepository.com/artifact/org.apache.tomcat.experimental/tomcat-embed-programmatic -->
         <dependency>
             <groupId>org.apache.tomcat.experimental</groupId>
             <artifactId>tomcat-embed-programmatic</artifactId>
@@ -80,31 +73,6 @@
 			${project.artifactId}
 		</finalName>
 		<plugins>
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.experimental</groupId>-->
-<!--                <artifactId>spring-aot-maven-plugin</artifactId>-->
-<!--                <version>${sring-graalvm.version}</version>-->
-<!--                <configuration>-->
-<!--                    <removeSpelSupport>true</removeSpelSupport>-->
-<!--                    <removeYamlSupport>true</removeYamlSupport>-->
-<!--                </configuration>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>test-generate</id>-->
-<!--                        <phase>process-test-classes</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>test-generate</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                    <execution>-->
-<!--                        <id>generate</id>-->
-<!--                        <phase>prepare-package</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>generate</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -129,16 +97,14 @@
                                 --no-fallback
                                 --verbose
                                 -Dspring.graal.mode=initialization-only
-                                --trace-class-initialization=sun.nio.ch.Iocp
-
+                                --trace-object-instantiation=sun.nio.ch.Iocp
                                 --initialize-at-build-time=net.bytebuddy.matcher.StringMatcher
                                 --initialize-at-build-time=net.bytebuddy.implementation.bind.annotation.Super$Instantiation
                                 --initialize-at-build-time=net.bytebuddy.description.type.TypeDescription$AbstractBase
                                 --initialize-at-build-time=net.bytebuddy.description.type.TypeDescription$ForLoadedType
                                 --initialize-at-build-time=sun.nio.ch.WindowsAsynchronousFileChannelImpl$DefaultIocpHolder
                                 --initialize-at-build-time=sun.instrument.InstrumentationImpl
-
-                                --rerun-class-initialization-at-runtime=sun.nio.ch.Iocp
+                                --initialize-at-run-time=org.h2.store.fs.FileUtils.newOutputStream
 
 
                             </buildArgs>
