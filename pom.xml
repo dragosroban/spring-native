@@ -48,8 +48,23 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.4.29.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.4.29.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -96,6 +111,8 @@
                                 --allow-incomplete-classpath
                                 --no-fallback
                                 --verbose
+                                --report-unsupported-elements-at-runtime -H:+ReportExceptionStackTraces
+
                                 -Dspring.graal.mode=initialization-only
                                 --trace-object-instantiation=sun.nio.ch.Iocp
                                 --initialize-at-build-time=net.bytebuddy.matcher.StringMatcher
@@ -104,8 +121,6 @@
                                 --initialize-at-build-time=net.bytebuddy.description.type.TypeDescription$ForLoadedType
                                 --initialize-at-build-time=sun.nio.ch.WindowsAsynchronousFileChannelImpl$DefaultIocpHolder
                                 --initialize-at-build-time=sun.instrument.InstrumentationImpl
-                                --initialize-at-run-time=org.h2.store.fs.FileUtils.newOutputStream
-
 
                             </buildArgs>
                             <mainClass>com.springnative.demo.DemoApplication</mainClass>
